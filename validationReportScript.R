@@ -8,7 +8,7 @@ library(readr)
 library(DBI)
 library(odbc)
 #### Data warehouse ----
-conn = dbConnect(odbc::odbc(), "DWHPROD-2023", UID = "guaribr", PWD = "estrangeiro", encoding = "latin1")
+conn = dbConnect(odbc::odbc(), "", UID = "", PWD = "", encoding = "latin1")
 
 tdi108 = dbGetQuery(conn, "select * from V_TDI_108") %>% rename_all(tolower) %>% filter(dsc_status %in% c('Validation In Progress','Submitted'))
 tdi109 = dbGetQuery(conn, "select * from V_TDI_109") %>% rename_all(tolower) %>% filter(dsc_status %in% c('Validation In Progress','Submitted'))
